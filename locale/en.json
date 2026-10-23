@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Page annotation",
+    "description": "Pick elements in a sidebar HTML preview, write comments, and send the whole batch into the session so the model edits the page."
+  }
+}

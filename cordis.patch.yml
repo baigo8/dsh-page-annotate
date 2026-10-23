@@ -1,0 +1,9 @@
+# dsh-page-annotate as a profile layer.
+#
+# Installing this package as a dependency is not enough on its own: the Loader
+# only mounts rows a patch layer inserts. This file is what `dsh.bundle.patch`
+# points at, so the plugin manager (or `dsh plugin add`) wires the row in for
+# you instead of leaving the person to hand-edit cordis.patch.yml.
+- insert:
+    - id: page-annotate
+      name: dsh-page-annotate

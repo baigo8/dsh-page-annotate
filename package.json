@@ -1,0 +1,57 @@
+{
+  "name": "dsh-page-annotate",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "description": "在右侧边栏的 HTML 预览里直接圈选元素、写批注，再把整批批注一次性发进会话，让模型按批注修改页面。",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "types": "./lib/client.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json",
+    "./locale/*": "./locale/*"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "src",
+    "tools",
+    "vendor",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node --test \"tests/*.test.mjs\"",
+    "check": "node tools/build.mjs && node --check lib/client.js && node --test \"tests/*.test.mjs\""
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-api-workspace-files",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-sidebar-documentpreview",
+        "@deepseek-ai/dsh-client-ui-sidebar-right"
+      ]
+    }
+  },
+  "devDependencies": {
+    "html2canvas": "1.4.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  }
+}
